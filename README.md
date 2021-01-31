@@ -1,27 +1,133 @@
-# HelloWorld
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
+# Creating a Component
+A component is made up of three parts:
 
-## Development server
+Template- HTML
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Class- TypeScript + Data & Methods
 
-## Code scaffolding
+Metadata- Informations
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Create new component from Angular CLI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+ng g c test
+```
+### Result
+CREATE src/app/test/test.component.css
 
-## Running unit tests
+CREATE src/app/test/test.component.html
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+CREATE src/app/test/test.component.spec.ts
 
-## Running end-to-end tests
+CREATE src/app/test/test.component.ts
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+UPDATE src/app/app.module.ts
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Include new component in App
+1. Check test.component.ts to find the name of selector (app-test)
+2. Go to src/app/test.component.html <--- ROOT COMPONENT
+3. Include <app-test></app-test> in root component
+4. Use ng serve with Angular CLI or npm start to run project
+5. App runs on default port http://localhost:4200
+
+
+## 3 ways to specify a Selector
+
+In test.components.ts, go to the metadata of your component decorator
+
+
+1. Use it as a custom HTML tag
+<app-test></app-test>
+
+```
+@Component({
+    selector: 'app-test',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.css']
+})
+```
+
+2. Use it as an HTML class
+<div class="app-test"></div>
+
+```
+@Component({
+    selector: '.app-test',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.css']
+})
+```
+
+3. Use it as an HTML attribute 
+<div app-test></div>
+
+```
+@Component({
+    selector: '[app-test]',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.css']
+})
+```
+
+## Change the template
+
+
+```
+@Component({
+    selector: '[app-test]',
+    templateURL: './test.component.html',
+    styleUrls: ['./test.component.css']
+})
+```
+
+Inline
+1. Change templateUrl to template
+2. Define html within the template property
+
+```
+@Component({
+    selector: '[app-test]',
+    template: '<div>Inline template</div>',
+    styleUrls: ['./test.component.css']
+})
+```
+
+Multiple inline lines of HTML code
+1. Use backticks
+2. Insert multiple lines of HTML code
+
+```
+@Component({
+    selector: '[app-test]',
+    template: `<div>Inline template</div>`,
+    styleUrls: ['./test.component.css']
+})
+```
+
+## Change the styles
+
+```
+@Component({
+    selector: '[app-test]',
+    template: `<div>Inline template</div>`,
+    styleUrls: ['./test.component.css']
+})
+```
+
+Inline styles
+```
+@Component({
+    selector: '[app-test]',
+    template: `<div>Inline template</div>`,
+    styles: [`
+    div{
+        color: red;
+    }
+    `]
+})
+```
+1. Change styleURL to styles
+2. Use backticks to use multiple lines of CSS
