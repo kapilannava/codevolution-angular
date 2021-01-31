@@ -34,7 +34,7 @@ UPDATE src/app/app.module.ts
 5. App runs on default port http://localhost:4200
 
 
-##3 ways to specify a Selector
+## 3 ways to specify a Selector
 
 In test.components.ts, go to the metadata of your component decorator
 
@@ -72,7 +72,7 @@ In test.components.ts, go to the metadata of your component decorator
 })
 ```
 
-##Change the template
+## Change the template
 
 
 ```
@@ -107,7 +107,7 @@ Multiple inline lines of HTML code
 })
 ```
 
-##Change the styles
+## Change the styles
 
 ```
 @Component({
